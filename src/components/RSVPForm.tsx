@@ -1,33 +1,49 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Loader2, Heart, Sparkles } from 'lucide-react';
+import { toast } from 'sonner';
+import { submitToSheet } from '../lib/sheets';
 
-export const RSVPForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
+type Attendance = 'Attending' | 'Not Attending';
+
+export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) => {
+  const emptyForm = {
+    fullName: guestName ?? '',
+    attendance: 'Attending' as Attendance,
     guests: '1',
     dietaryNotes: '',
-  });
+  };
+  const [formData, setFormData] = useState(emptyForm);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [submittedAttendance, setSubmittedAttendance] = useState<Attendance>('Attending');
+
+  const isAttending = formData.attendance === 'Attending';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
     try {
-      // Simulate network request latency
-      await new Promise(resolve => setTimeout(resolve, 800));
+      await submitToSheet('RSVP', {
+        name: formData.fullName.trim(),
+        invitedAs: guestName ?? '',
+        attendance: formData.attendance,
+        guests: isAttending ? formData.guests : '0',
+        notes: formData.dietaryNotes.trim(),
+      });
 
+      setSubmittedAttendance(formData.attendance);
       setStatus('success');
-      setFormData({ fullName: '', guests: '1', dietaryNotes: '' });
+      setFormData(emptyForm);
     } catch (error) {
       console.error('Error sending RSVP: ', error);
+      toast.error('Could not send your response. Please try again.');
       setStatus('error');
     }
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-6 relative py-10">
+    <div className="max-w-5xl mx-auto px-6 relative py-4">
       {/* Premium ambient backdrop & glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-brand-gold/15 to-transparent rounded-full blur-[100px] pointer-events-none -z-10" />
 
@@ -36,7 +52,7 @@ export const RSVPForm: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="glass p-10 sm:p-14 lg:p-16 rounded-[3rem] border border-white/40 shadow-[0_30px_60px_rgba(197,160,89,0.1)] relative overflow-hidden bg-white/60 backdrop-blur-3xl lg:flex items-center gap-16"
+        className="glass p-8 sm:p-10 lg:p-12 rounded-[3rem] border border-white/40 shadow-[0_30px_60px_rgba(197,160,89,0.1)] relative overflow-hidden bg-white/60 backdrop-blur-3xl lg:flex items-center gap-16"
       >
         {/* Soft top border line */}
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-champagne via-brand-mocha/80 to-brand-champagne" />
@@ -79,7 +95,9 @@ export const RSVPForm: React.FC = () => {
                 </div>
                 <h3 className="text-4xl font-display text-brand-mocha mb-4 tracking-tight drop-shadow-sm">With Gratitude</h3>
                 <p className="text-brand-sand/90 leading-relaxed font-serif text-lg mb-8">
-                  Your response has been warmly received. We cannot wait to celebrate with you!
+                  {submittedAttendance === 'Attending'
+                    ? 'Your response has been warmly received. We cannot wait to celebrate with you!'
+                    : 'Thank you for letting us know. You will be dearly missed, and we are grateful for your love and blessings.'}
                 </p>
                 <button
                   onClick={() => setStatus('idle')}
@@ -110,6 +128,27 @@ export const RSVPForm: React.FC = () => {
                 </div>
 
                 <div>
+                  <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-brand-sand mb-3 ml-2">Will You Attend?</label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {(['Attending', 'Not Attending'] as Attendance[]).map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, attendance: option })}
+                        className={`px-4 py-4 rounded-full border font-serif italic text-base sm:text-lg transition-all duration-300 ${
+                          formData.attendance === option
+                            ? 'bg-brand-mocha text-brand-champagne border-brand-mocha shadow-md'
+                            : 'bg-white/80 text-brand-mocha border-stone-200/60 hover:border-brand-gold/60'
+                        }`}
+                      >
+                        {option === 'Attending' ? 'Joyfully Accept' : 'Regretfully Decline'}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {isAttending && (
+                <div>
                   <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-brand-sand mb-3 ml-2">Number of Guests</label>
                   <div className="relative group">
                     <select
@@ -127,11 +166,12 @@ export const RSVPForm: React.FC = () => {
                     </div>
                   </div>
                 </div>
+                )}
 
                 <div>
-                  <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-brand-sand mb-3 ml-2">Dietary Notes (Optional)</label>
+                  <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-brand-sand mb-3 ml-2">{isAttending ? 'Dietary Notes (Optional)' : 'Message (Optional)'}</label>
                   <textarea
-                    placeholder="We'd love to know if you have any allergies..."
+                    placeholder={isAttending ? "We'd love to know if you have any allergies..." : 'Leave a little note for the couple...'}
                     className="w-full bg-white/80 px-6 py-4 rounded-[2rem] border border-stone-200/60 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-mocha/40 outline-none transition-all duration-300 h-28 resize-none font-serif italic text-lg shadow-inner placeholder:text-stone-300"
                     value={formData.dietaryNotes}
                     onChange={(e) => setFormData({ ...formData, dietaryNotes: e.target.value })}
@@ -147,7 +187,7 @@ export const RSVPForm: React.FC = () => {
                     {status === 'loading' ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
                     ) : (
-                      'Confirm Attendance'
+                      isAttending ? 'Confirm Attendance' : 'Send Response'
                     )}
                   </button>
                 </div>

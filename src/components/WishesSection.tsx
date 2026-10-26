@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, Loader2, Sparkles } from 'lucide-react';
+import { toast } from 'sonner';
+import { fetchWishes, submitToSheet } from '../lib/sheets';
 
 interface Wish {
   id: string;
@@ -24,14 +26,32 @@ export const WishesSection: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    let cancelled = false;
+    fetchWishes()
+      .then((rows) => {
+        if (cancelled) return;
+        setWishes(rows.map((row, i) => ({
+          id: `sheet-${i}`,
+          name: row.name,
+          message: row.message,
+          createdAt: new Date(row.createdAt),
+        })));
+      })
+      .catch((error) => console.error('Error loading wishes: ', error));
+    return () => { cancelled = true; };
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
     setIsSubmitting(true);
 
     try {
-      // Simulate network request latency
-      await new Promise(resolve => setTimeout(resolve, 800));
+      await submitToSheet('WISH', {
+        name: formData.name.trim(),
+        message: formData.message.trim(),
+      });
 
       const newWish: Wish = {
         id: Date.now().toString(),
@@ -45,6 +65,7 @@ export const WishesSection: React.FC = () => {
       setFormData({ name: '', message: '' });
     } catch (error) {
       console.error('Error submitting wish: ', error);
+      toast.error('Could not send your wishes. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
