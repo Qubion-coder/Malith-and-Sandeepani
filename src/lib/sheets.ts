@@ -7,12 +7,6 @@ const scriptUrl = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || DEFAULT_SCRIPT_
 
 export type SheetKey = 'RSVP' | 'WISH';
 
-export interface SheetWish {
-  name: string;
-  message: string;
-  createdAt: string;
-}
-
 export async function submitToSheet(sheet: SheetKey, data: Record<string, string>): Promise<void> {
   if (!scriptUrl) {
     throw new Error('VITE_GOOGLE_APPS_SCRIPT_URL is not configured.');
@@ -25,12 +19,4 @@ export async function submitToSheet(sheet: SheetKey, data: Record<string, string
     mode: 'no-cors',
     body: new URLSearchParams({ sheet, ...data }),
   });
-}
-
-export async function fetchWishes(): Promise<SheetWish[]> {
-  if (!scriptUrl) return [];
-
-  const res = await fetch(`${scriptUrl}?action=wishes`);
-  const json = await res.json();
-  return json.ok && Array.isArray(json.wishes) ? json.wishes : [];
 }
