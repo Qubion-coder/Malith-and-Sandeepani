@@ -1,5 +1,5 @@
 /**
- * Malith & Sandeepani – Wedding RSVP & Wishes backend
+ * Malith & Nipunika – Wedding RSVP & Wishes backend
  *
  * Paste this whole file into Extensions > Apps Script of the Google Sheet,
  * run setupSheets() once, then Deploy > New deployment > Web app.

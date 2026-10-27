@@ -20,10 +20,10 @@ export const Hero: React.FC<{ guestName: string | null }> = ({ guestName }) => {
         style={{ y: y1, scale }}
       >
         <img
-          src="/images/a.jpg"
+          src="/z.jpeg"
           alt={`${wedding.groom.name} and ${wedding.bride.name}`}
-          className="w-full h-full object-cover opacity-90"
-          style={{ objectPosition: 'center 20%' }}
+          className="w-full h-full object-cover sm:object-contain opacity-90"
+          style={{ objectPosition: 'center 30%' }}
         />
         {/* Soft elegant gradient overlays to ensure text readability & premium feel */}
         <div className="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-white/50" />
