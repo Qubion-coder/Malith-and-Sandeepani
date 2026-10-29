@@ -21,7 +21,9 @@ export default function App({ guestName }: { guestName: string | null }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio('/paulyudin-wedding-485932.mp3');
+    audioRef.current = new Audio(
+      encodeURI('/Gee Mandawa UK 2019 - DENUWARA MINPASU - Raween Kanishka & Saskia Nisansala.mp3'),
+    );
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
     audioRef.current.preload = 'auto';
