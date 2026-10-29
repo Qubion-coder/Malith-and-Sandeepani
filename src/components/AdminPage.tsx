@@ -83,7 +83,7 @@ export const AdminPage: React.FC = () => {
 
         <form
           onSubmit={handleGenerate}
-          className="bg-white/80 rounded-3xl border border-brand-gold/30 shadow-[0_20px_50px_rgba(197,160,89,0.12)] p-6 sm:p-10 space-y-6"
+          className="bg-white/80 rounded-3xl border border-brand-gold/30 shadow-[0_20px_50px_rgba(127,155,184,0.12)] p-6 sm:p-10 space-y-6"
         >
           <div className="grid sm:grid-cols-[180px_1fr] gap-5">
             <div>

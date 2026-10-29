@@ -39,7 +39,7 @@ export const Timeline: React.FC = () => {
               </div>
 
               {/* Icon Node */}
-              <div className="relative z-10 w-16 h-16 rounded-full bg-white border-2 border-brand-gold/40 flex items-center justify-center shadow-[0_0_30px_rgba(197,160,89,0.3)] group-hover:scale-110 transition-transform duration-500">
+              <div className="relative z-10 w-16 h-16 rounded-full bg-white border-2 border-brand-gold/40 flex items-center justify-center shadow-[0_0_30px_rgba(127,155,184,0.3)] group-hover:scale-110 transition-transform duration-500">
                 <div className="absolute inset-1 border border-brand-gold/20 rounded-full" />
                 <event.icon className="w-6 h-6 text-brand-mocha" />
               </div>

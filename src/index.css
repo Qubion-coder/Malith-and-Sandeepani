@@ -2,15 +2,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* Emerald & Gold Color Palette */
-  --color-brand-beige: #c5a059; /* Kept old names for compatibility, mapped to gold */
-  --color-brand-beige-deep: #0b3323; /* Mapped to Emerald */
-  --color-brand-champagne: #fcf8ee;
+  /* Dusty Blue Color Palette (token names kept for compatibility) */
+  --color-brand-beige: #7f9bb8; /* Dusty blue */
+  --color-brand-beige-deep: #2c4361; /* Deep dusty navy */
+  --color-brand-champagne: #f1f5f9; /* Misty blue-white */
   --color-brand-ivory: #ffffff;
-  --color-brand-gold: #c5a059;
-  --color-brand-gold-light: #e5cd97;
-  --color-brand-mocha: #061e14; /* Deep emerald */
-  --color-brand-sand: #164f38; /* Light emerald */
+  --color-brand-gold: #7f9bb8; /* Dusty blue accent */
+  --color-brand-gold-light: #c3d3e3; /* Pale dusty blue */
+  --color-brand-mocha: #2c4361; /* Deep dusty navy (headings) */
+  --color-brand-sand: #56708e; /* Muted slate blue (body text) */
 
   --font-serif: "Cormorant Garamond", serif;
   --font-display: "Cinzel", serif;
@@ -20,7 +20,7 @@
 
 :root {
   background-color: var(--color-brand-ivory);
-  color: #292524;
+  color: #2c4361;
 }
 
 html, body {
@@ -65,7 +65,7 @@ html, body {
 }
 
 .bg-texture-floral {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5a059' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237f9bb8' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .bg-texture-noise {
@@ -80,7 +80,7 @@ html, body {
   content: '';
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(197, 160, 89, 0.3);
+  border: 1px solid rgba(127, 155, 184, 0.3);
   pointer-events: none;
   z-index: 10;
 }
@@ -88,7 +88,7 @@ html, body {
   content: '';
   position: absolute;
   inset: 16px;
-  border: 1px solid rgba(197, 160, 89, 0.15);
+  border: 1px solid rgba(127, 155, 184, 0.15);
   pointer-events: none;
   z-index: 10;
 }

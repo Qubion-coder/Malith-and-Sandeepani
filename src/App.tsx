@@ -72,7 +72,7 @@ export default function App({ guestName }: { guestName: string | null }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 1 }}
         onClick={toggleMusic}
-        className="fixed top-6 right-6 z-50 w-12 sm:w-14 h-12 sm:h-14 bg-white/70 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgba(197,160,89,0.2)] flex items-center justify-center border border-brand-gold/50 text-brand-mocha hover:scale-105 transition-all duration-300"
+        className="fixed top-6 right-6 z-50 w-12 sm:w-14 h-12 sm:h-14 bg-white/70 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgba(127,155,184,0.25)] flex items-center justify-center border border-brand-gold/50 text-brand-mocha hover:scale-105 transition-all duration-300"
       >
         {isMusicPlaying ? <Music className="w-5 h-5 sm:w-6 sm:h-6" /> : <VolumeX className="w-5 h-5 sm:w-6 sm:h-6" />}
       </motion.button>

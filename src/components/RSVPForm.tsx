@@ -52,7 +52,7 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="glass p-8 sm:p-10 lg:p-12 rounded-[3rem] border border-white/40 shadow-[0_30px_60px_rgba(197,160,89,0.1)] relative overflow-hidden bg-white/60 backdrop-blur-3xl lg:flex items-center gap-16"
+        className="glass p-8 sm:p-10 lg:p-12 rounded-[3rem] border border-white/40 shadow-[0_30px_60px_rgba(127,155,184,0.1)] relative overflow-hidden bg-white/60 backdrop-blur-3xl lg:flex items-center gap-16"
       >
         {/* Soft top border line */}
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-champagne via-brand-mocha/80 to-brand-champagne" />
@@ -90,8 +90,8 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="text-center py-16 px-8 bg-white/70 rounded-[2rem] border border-white shadow-xl"
               >
-                <div className="w-24 h-24 bg-green-50/80 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner border border-green-100">
-                  <CheckCircle className="w-12 h-12 text-green-500" />
+                <div className="w-24 h-24 bg-brand-champagne rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner border border-brand-gold-light">
+                  <CheckCircle className="w-12 h-12 text-brand-gold" />
                 </div>
                 <h3 className="text-4xl font-display text-brand-mocha mb-4 tracking-tight drop-shadow-sm">With Gratitude</h3>
                 <p className="text-brand-sand/90 leading-relaxed font-serif text-lg mb-8">

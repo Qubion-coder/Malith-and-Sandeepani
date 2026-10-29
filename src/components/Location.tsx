@@ -19,7 +19,7 @@ export const Location: React.FC = () => {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="w-full max-w-2xl z-20"
         >
-          <div className="bg-white/90 backdrop-blur-2xl p-10 sm:p-14 lg:p-16 rounded-[2.5rem] shadow-[0_30px_60px_rgba(197,160,89,0.15)] border border-brand-gold/30 relative overflow-hidden group">
+          <div className="bg-white/90 backdrop-blur-2xl p-10 sm:p-14 lg:p-16 rounded-[2.5rem] shadow-[0_30px_60px_rgba(127,155,184,0.15)] border border-brand-gold/30 relative overflow-hidden group">
             
             {/* Elegant top border gradient */}
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-champagne via-brand-gold to-brand-mocha" />

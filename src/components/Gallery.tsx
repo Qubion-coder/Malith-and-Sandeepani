@@ -69,7 +69,7 @@ export const Gallery: React.FC = () => {
           {marqueeImages.map((image, index) => (
             <div
               key={`${image.id}-${index}`}
-              className="relative flex-none w-[75vw] sm:w-[45vw] lg:w-[28vw] aspect-[3/4] sm:aspect-[4/5] arch-shape overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] group cursor-pointer border-[8px] sm:border-[10px] border-white/90 bg-brand-champagne transform transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_40px_60px_rgba(197,160,89,0.2)]"
+              className="relative flex-none w-[75vw] sm:w-[45vw] lg:w-[28vw] aspect-[3/4] sm:aspect-[4/5] arch-shape overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] group cursor-pointer border-[8px] sm:border-[10px] border-white/90 bg-brand-champagne transform transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_40px_60px_rgba(127,155,184,0.2)]"
               onClick={() => setSelectedImage(image.url)}
             >
               <img

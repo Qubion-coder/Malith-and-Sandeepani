@@ -53,7 +53,7 @@ export const WishesSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="w-full glass p-8 sm:p-14 rounded-[3rem] border border-white/60 shadow-[0_30px_60px_rgba(197,160,89,0.1)] relative overflow-hidden bg-white/70 backdrop-blur-3xl"
+          className="w-full glass p-8 sm:p-14 rounded-[3rem] border border-white/60 shadow-[0_30px_60px_rgba(127,155,184,0.1)] relative overflow-hidden bg-white/70 backdrop-blur-3xl"
         >
           {/* Subtle top reflection line */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-50" />
