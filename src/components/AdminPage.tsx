@@ -64,7 +64,7 @@ export const AdminPage: React.FC = () => {
   };
 
   const inputClass =
-    'w-full bg-white px-5 py-3.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold outline-none transition-all text-brand-mocha';
+    'w-full bg-brand-ivory px-5 py-3.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold outline-none transition-all text-brand-mocha';
   const secondaryButtonClass =
     'flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-brand-gold/50 text-brand-mocha font-sans text-[11px] tracking-[0.2em] uppercase font-bold hover:bg-brand-gold/10 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent';
 
@@ -83,7 +83,7 @@ export const AdminPage: React.FC = () => {
 
         <form
           onSubmit={handleGenerate}
-          className="bg-white/80 rounded-3xl border border-brand-gold/30 shadow-[0_20px_50px_rgba(127,155,184,0.12)] p-6 sm:p-10 space-y-6"
+          className="bg-brand-ivory/80 rounded-3xl border border-brand-gold/30 shadow-[0_20px_50px_rgba(193,154,75,0.12)] p-6 sm:p-10 space-y-6"
         >
           <div className="grid sm:grid-cols-[180px_1fr] gap-5">
             <div>
@@ -160,7 +160,7 @@ export const AdminPage: React.FC = () => {
         </form>
 
         {generated && (
-          <section className="mt-8 bg-white/80 rounded-3xl border border-brand-gold/30 p-6 sm:p-10 space-y-6">
+          <section className="mt-8 bg-brand-ivory/80 rounded-3xl border border-brand-gold/30 p-6 sm:p-10 space-y-6">
             <div>
               <span className="block text-[10px] uppercase tracking-[0.2em] font-bold text-brand-sand mb-2">Generated Link</span>
               <a

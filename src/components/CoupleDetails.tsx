@@ -57,7 +57,7 @@ export const CoupleDetails: React.FC = () => {
           {/* Glowing border effect */}
           <div className="absolute -inset-2 bg-gradient-to-b from-brand-mocha/30 to-transparent rounded-[12rem_12rem_1rem_1rem] blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-          <div className="relative w-[300px] h-[400px] sm:w-[360px] sm:h-[500px] lg:w-[420px] lg:h-[580px] rounded-[12rem_12rem_16px_16px] overflow-hidden border-[6px] border-white/90 shadow-[0_20px_50px_rgba(127,155,184,0.2)] bg-brand-champagne mx-auto z-10 transition-transform duration-700 group-hover:-translate-y-2">
+          <div className="relative w-[300px] h-[400px] sm:w-[360px] sm:h-[500px] lg:w-[420px] lg:h-[580px] rounded-[12rem_12rem_16px_16px] overflow-hidden border-[6px] border-brand-ivory/90 shadow-[0_20px_50px_rgba(193,154,75,0.2)] bg-brand-champagne mx-auto z-10 transition-transform duration-700 group-hover:-translate-y-2">
             <img
               src="/x.jpeg"
               onError={(e) => {
@@ -65,7 +65,7 @@ export const CoupleDetails: React.FC = () => {
                 e.currentTarget.onerror = null;
               }}
               alt={`${wedding.groom.name} and ${wedding.bride.name}`}
-              className="w-full h-full object-cover object-[center_40%] transition-transform duration-[1.5s] ease-out group-hover:scale-[1.04]"
+              className="w-full h-full object-cover object-[center_40%] mix-blend-multiply transition-transform duration-[1.5s] ease-out group-hover:scale-[1.04]"
             />
             {/* Elegant inner shadow & overlay */}
             <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.1)] pointer-events-none" />

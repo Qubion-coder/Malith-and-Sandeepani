@@ -52,7 +52,7 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="glass p-8 sm:p-10 lg:p-12 rounded-[3rem] border border-white/40 shadow-[0_30px_60px_rgba(127,155,184,0.1)] relative overflow-hidden bg-white/60 backdrop-blur-3xl lg:flex items-center gap-16"
+        className="glass p-8 sm:p-10 lg:p-12 rounded-[3rem] border border-brand-ivory/40 shadow-[0_30px_60px_rgba(193,154,75,0.1)] relative overflow-hidden bg-brand-ivory/60 backdrop-blur-3xl lg:flex items-center gap-16"
       >
         {/* Soft top border line */}
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-champagne via-brand-mocha/80 to-brand-champagne" />
@@ -88,7 +88,7 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="text-center py-16 px-8 bg-white/70 rounded-[2rem] border border-white shadow-xl"
+                className="text-center py-16 px-8 bg-brand-ivory/70 rounded-[2rem] border border-brand-ivory shadow-xl"
               >
                 <div className="w-24 h-24 bg-brand-champagne rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner border border-brand-gold-light">
                   <CheckCircle className="w-12 h-12 text-brand-gold" />
@@ -113,7 +113,7 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onSubmit={handleSubmit}
-                className="space-y-6 bg-white/40 p-8 sm:p-10 rounded-[2.5rem] border border-white shadow-[0_15px_30px_rgba(0,0,0,0.05)]"
+                className="space-y-6 bg-brand-ivory/40 p-8 sm:p-10 rounded-[2.5rem] border border-brand-ivory shadow-[0_15px_30px_rgba(0,0,0,0.05)]"
               >
                 <div>
                   <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-brand-sand mb-3 ml-2">Full Name</label>
@@ -121,7 +121,7 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
                     required
                     type="text"
                     placeholder="E.g., John & Jane Doe"
-                    className="w-full bg-white/80 px-6 py-4 rounded-full border border-stone-200/60 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-mocha/40 outline-none transition-all duration-300 font-serif italic text-lg shadow-inner placeholder:text-stone-300"
+                    className="w-full bg-brand-ivory/80 px-6 py-4 rounded-full border border-stone-200/60 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-mocha/40 outline-none transition-all duration-300 font-serif italic text-lg shadow-inner placeholder:text-stone-300"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   />
@@ -138,7 +138,7 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
                         className={`px-4 py-4 rounded-full border font-serif italic text-base sm:text-lg transition-all duration-300 ${
                           formData.attendance === option
                             ? 'bg-brand-mocha text-brand-champagne border-brand-mocha shadow-md'
-                            : 'bg-white/80 text-brand-mocha border-stone-200/60 hover:border-brand-gold/60'
+                            : 'bg-brand-ivory/80 text-brand-mocha border-stone-200/60 hover:border-brand-gold/60'
                         }`}
                       >
                         {option === 'Attending' ? 'Joyfully Accept' : 'Regretfully Decline'}
@@ -152,7 +152,7 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
                   <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-brand-sand mb-3 ml-2">Number of Guests</label>
                   <div className="relative group">
                     <select
-                      className="w-full bg-white/80 px-6 py-4 rounded-full border border-stone-200/60 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-mocha/40 outline-none transition-all duration-300 appearance-none font-serif italic text-lg shadow-inner text-brand-mocha cursor-pointer"
+                      className="w-full bg-brand-ivory/80 px-6 py-4 rounded-full border border-stone-200/60 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-mocha/40 outline-none transition-all duration-300 appearance-none font-serif italic text-lg shadow-inner text-brand-mocha cursor-pointer"
                       value={formData.guests}
                       onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
                     >
@@ -172,7 +172,7 @@ export const RSVPForm: React.FC<{ guestName: string | null }> = ({ guestName }) 
                   <label className="block text-[10px] uppercase tracking-[0.2em] font-bold text-brand-sand mb-3 ml-2">{isAttending ? 'Dietary Notes (Optional)' : 'Message (Optional)'}</label>
                   <textarea
                     placeholder={isAttending ? "We'd love to know if you have any allergies..." : 'Leave a little note for the couple...'}
-                    className="w-full bg-white/80 px-6 py-4 rounded-[2rem] border border-stone-200/60 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-mocha/40 outline-none transition-all duration-300 h-28 resize-none font-serif italic text-lg shadow-inner placeholder:text-stone-300"
+                    className="w-full bg-brand-ivory/80 px-6 py-4 rounded-[2rem] border border-stone-200/60 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-mocha/40 outline-none transition-all duration-300 h-28 resize-none font-serif italic text-lg shadow-inner placeholder:text-stone-300"
                     value={formData.dietaryNotes}
                     onChange={(e) => setFormData({ ...formData, dietaryNotes: e.target.value })}
                   />

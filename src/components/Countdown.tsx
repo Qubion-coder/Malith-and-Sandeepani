@@ -46,17 +46,17 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
           className="flex flex-col items-center min-w-[90px] sm:min-w-[130px] relative group"
         >
           {/* Glass background arch */}
-          <div className="absolute inset-0 bg-white/60 backdrop-blur-md border border-brand-gold/40 shadow-[0_15px_30px_rgba(127,155,184,0.1)] rounded-[3rem_3rem_1rem_1rem] sm:rounded-[4rem_4rem_1.5rem_1.5rem] group-hover:shadow-[0_20px_40px_rgba(127,155,184,0.2)] transition-all duration-700 ease-out group-hover:-translate-y-3 pointer-events-none" />
+          <div className="absolute inset-0 bg-brand-ivory/5 backdrop-blur-md border border-brand-gold/50 shadow-[0_15px_30px_rgba(193,154,75,0.1)] rounded-[3rem_3rem_1rem_1rem] sm:rounded-[4rem_4rem_1.5rem_1.5rem] group-hover:shadow-[0_20px_40px_rgba(193,154,75,0.2)] transition-all duration-700 ease-out group-hover:-translate-y-3 pointer-events-none" />
           
           <div className="relative pt-10 pb-8 px-4 flex flex-col items-center w-full z-10 transition-transform duration-700 group-hover:-translate-y-3">
             {/* Elegant number */}
-            <span className="text-5xl sm:text-6xl lg:text-7xl font-display font-medium text-brand-mocha mb-4 drop-shadow-[0_2px_4px_rgba(127,155,184,0.3)] tabular-nums tracking-wide">
+            <span className="text-5xl sm:text-6xl lg:text-7xl font-display font-medium text-brand-gold-light mb-4 drop-shadow-[0_2px_4px_rgba(193,154,75,0.3)] tabular-nums tracking-wide">
               {String(item.value).padStart(2, '0')}
             </span>
             {/* Divider line */}
-            <div className="w-10 h-[1.5px] bg-gradient-to-r from-transparent via-brand-mocha/50 to-transparent mb-4" />
+            <div className="w-10 h-[1.5px] bg-gradient-to-r from-transparent via-brand-gold/70 to-transparent mb-4" />
             {/* Label */}
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.4em] text-brand-sand font-semibold">{item.label}</span>
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.4em] text-brand-ivory/80 font-semibold">{item.label}</span>
           </div>
         </motion.div>
       ))}

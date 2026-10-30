@@ -12,21 +12,21 @@ export const Hero: React.FC<{ guestName: string | null }> = ({ guestName }) => {
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <div ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-white/50">
+    <div ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-ivory/50">
 
       {/* Background Image with Parallax & Elegant Overlay */}
       <motion.div
-        className="absolute inset-0 z-0 origin-center"
+        className="absolute inset-0 z-0 origin-center bg-brand-champagne"
         style={{ y: y1, scale }}
       >
         <img
           src="/z.jpeg"
           alt={`${wedding.groom.name} and ${wedding.bride.name}`}
-          className="w-full h-full object-cover sm:object-contain opacity-90"
+          className="w-full h-full object-cover sm:object-contain mix-blend-multiply"
           style={{ objectPosition: 'center 30%' }}
         />
         {/* Soft elegant gradient overlays to ensure text readability & premium feel */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-white/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-champagne via-brand-champagne/55 to-brand-champagne/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-gold/15 via-transparent to-brand-gold/10 mix-blend-overlay" />
       </motion.div>
 
@@ -37,26 +37,26 @@ export const Hero: React.FC<{ guestName: string | null }> = ({ guestName }) => {
       {/* Corner Ornaments */}
       <div className="absolute top-6 left-6 w-12 h-12 pointer-events-none z-10 hidden sm:block opacity-60">
         <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5,5 L5,25 C5,15 15,5 25,5 L5,5 Z" fill="none" stroke="#7f9bb8" strokeWidth="1"/>
-          <circle cx="5" cy="5" r="2" fill="#7f9bb8" />
+          <path d="M5,5 L5,25 C5,15 15,5 25,5 L5,5 Z" fill="none" stroke="#c19a4b" strokeWidth="1"/>
+          <circle cx="5" cy="5" r="2" fill="#c19a4b" />
         </svg>
       </div>
       <div className="absolute top-6 right-6 w-12 h-12 pointer-events-none z-10 hidden sm:block opacity-60" style={{ transform: 'scaleX(-1)' }}>
         <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5,5 L5,25 C5,15 15,5 25,5 L5,5 Z" fill="none" stroke="#7f9bb8" strokeWidth="1"/>
-          <circle cx="5" cy="5" r="2" fill="#7f9bb8" />
+          <path d="M5,5 L5,25 C5,15 15,5 25,5 L5,5 Z" fill="none" stroke="#c19a4b" strokeWidth="1"/>
+          <circle cx="5" cy="5" r="2" fill="#c19a4b" />
         </svg>
       </div>
       <div className="absolute bottom-6 left-6 w-12 h-12 pointer-events-none z-10 hidden sm:block opacity-60" style={{ transform: 'scaleY(-1)' }}>
         <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5,5 L5,25 C5,15 15,5 25,5 L5,5 Z" fill="none" stroke="#7f9bb8" strokeWidth="1"/>
-          <circle cx="5" cy="5" r="2" fill="#7f9bb8" />
+          <path d="M5,5 L5,25 C5,15 15,5 25,5 L5,5 Z" fill="none" stroke="#c19a4b" strokeWidth="1"/>
+          <circle cx="5" cy="5" r="2" fill="#c19a4b" />
         </svg>
       </div>
       <div className="absolute bottom-6 right-6 w-12 h-12 pointer-events-none z-10 hidden sm:block opacity-60" style={{ transform: 'scale(-1, -1)' }}>
         <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5,5 L5,25 C5,15 15,5 25,5 L5,5 Z" fill="none" stroke="#7f9bb8" strokeWidth="1"/>
-          <circle cx="5" cy="5" r="2" fill="#7f9bb8" />
+          <path d="M5,5 L5,25 C5,15 15,5 25,5 L5,5 Z" fill="none" stroke="#c19a4b" strokeWidth="1"/>
+          <circle cx="5" cy="5" r="2" fill="#c19a4b" />
         </svg>
       </div>
 
@@ -89,11 +89,11 @@ export const Hero: React.FC<{ guestName: string | null }> = ({ guestName }) => {
 
           <div className="relative mb-8 sm:mb-12 w-full flex justify-center">
             {/* Soft glow behind text for contrast and magical feel */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[140%] bg-white/40 blur-[50px] sm:blur-[80px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[140%] bg-brand-ivory/40 blur-[50px] sm:blur-[80px] rounded-full pointer-events-none" />
 
-            <h1 className="relative text-6xl sm:text-[7rem] lg:text-[9.5rem] font-display text-brand-mocha leading-[1.1] sm:leading-[0.9] drop-shadow-sm">
+            <h1 className="relative text-5xl sm:text-[7rem] lg:text-[9.5rem] font-display text-brand-mocha leading-[1.1] sm:leading-[0.9] drop-shadow-sm">
               {wedding.groom.name} <br className="sm:hidden" />
-              <span className="text-brand-gold italic font-light mx-2 sm:mx-6 text-5xl sm:text-[6rem] lg:text-[8rem] inline-block -translate-y-2 sm:-translate-y-6">&</span>
+              <span className="text-brand-gold italic font-light mx-2 sm:mx-6 text-4xl sm:text-[6rem] lg:text-[8rem] inline-block -translate-y-2 sm:-translate-y-6">&</span>
               <br className="sm:hidden" />
               {wedding.bride.name}
             </h1>
@@ -118,8 +118,8 @@ export const Hero: React.FC<{ guestName: string | null }> = ({ guestName }) => {
           {/* Enhanced Date pill with premium glass effect */}
           <div className="inline-block relative group mt-4 sm:mt-8 w-full sm:w-auto px-4 sm:px-0">
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-gold/40 via-brand-gold-light/40 to-brand-gold/40 rounded-full blur-[8px] opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-300 transform group-hover:scale-105" />
-            <div className="relative px-4 sm:px-12 py-3 sm:py-5 bg-white/70 backdrop-blur-lg border border-brand-gold/50 rounded-full shadow-[0_8px_30px_rgba(127,155,184,0.15)] overflow-hidden whitespace-nowrap flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-b from-white/60 to-transparent pointer-events-none" />
+            <div className="relative px-4 sm:px-12 py-3 sm:py-5 bg-brand-ivory/70 backdrop-blur-lg border border-brand-gold/50 rounded-full shadow-[0_8px_30px_rgba(193,154,75,0.15)] overflow-hidden whitespace-nowrap flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-b from-brand-ivory/60 to-transparent pointer-events-none" />
               <span className="relative text-[16px] sm:text-3xl font-serif text-brand-mocha tracking-[0.2em] sm:tracking-[0.4em] font-medium drop-shadow-sm flex items-center gap-2 sm:gap-3 whitespace-nowrap">
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-brand-gold flex-shrink-0" />
                 {wedding.dateDisplay}
