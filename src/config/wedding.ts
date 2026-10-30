@@ -4,7 +4,7 @@
 export const wedding = {
   groom: {
     name: 'Malith',
-    parents: ['Mr. T. H. G. Dayananda', 'Mrs. Nalani Withanage'],
+    parents: ['Mr. T. H. G. Dayananda', 'Mrs. Nalani Vithanage'],
   },
   bride: {
     name: 'Nipunika',
