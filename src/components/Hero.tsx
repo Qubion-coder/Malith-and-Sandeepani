@@ -20,7 +20,11 @@ export const Hero: React.FC<{ guestName: string | null }> = ({ guestName }) => {
         style={{ y: y1, scale }}
       >
         <img
-          src="/z.jpeg"
+          src="/hero.webp"
+          width={842}
+          height={1264}
+          fetchPriority="high"
+          decoding="async"
           alt={`${wedding.groom.name} and ${wedding.bride.name}`}
           className="w-full h-full object-cover sm:object-contain mix-blend-multiply"
           style={{ objectPosition: 'center 30%' }}

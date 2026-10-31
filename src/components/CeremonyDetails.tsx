@@ -89,13 +89,17 @@ export const CeremonyDetails: React.FC = () => {
             {/* Main Creative Image Frame */}
             <div className="relative aspect-[3/4] sm:aspect-[4/5] arch-shape overflow-hidden border-[6px] sm:border-[8px] border-brand-ivory shadow-[0_20px_50px_rgba(193,154,75,0.2)] bg-brand-ivory group">
               <img
-                src="/c.jpeg"
+                src="/couple-3.webp"
+                width={842}
+                height={1264}
+                loading="lazy"
+                decoding="async"
                 onError={(e) => { 
                   e.currentTarget.src = "https://images.unsplash.com/photo-1519225421980-715cb02151ff?auto=format&fit=crop&q=80&w=800&h=1000"; 
                   e.currentTarget.onerror = null; 
                 }}
                 alt={`${wedding.groom.name} and ${wedding.bride.name}`}
-                className="w-full h-full object-cover object-[center_35%] mix-blend-multiply transition-transform duration-[2s] ease-out group-hover:scale-[1.04]"
+                className="w-full h-full object-cover object-[center_15%] mix-blend-multiply transition-transform duration-[2s] ease-out group-hover:scale-[1.04]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/5 pointer-events-none mix-blend-overlay opacity-opacity-70 group-hover:opacity-100 transition-opacity duration-1000" />
             </div>
