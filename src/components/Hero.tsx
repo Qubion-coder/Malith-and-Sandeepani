@@ -26,7 +26,7 @@ export const Hero: React.FC<{ guestName: string | null }> = ({ guestName }) => {
           fetchPriority="high"
           decoding="async"
           alt={`${wedding.groom.name} and ${wedding.bride.name}`}
-          className="w-full h-full object-cover sm:object-contain mix-blend-multiply"
+          className="w-full h-full object-cover sm:object-contain"
           style={{ objectPosition: 'center 30%' }}
         />
         {/* Soft elegant gradient overlays to ensure text readability & premium feel */}

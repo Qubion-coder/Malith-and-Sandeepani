@@ -69,7 +69,7 @@ export const CoupleDetails: React.FC = () => {
                 e.currentTarget.onerror = null;
               }}
               alt={`${wedding.groom.name} and ${wedding.bride.name}`}
-              className="w-full h-full object-cover object-[center_40%] mix-blend-multiply transition-transform duration-[1.5s] ease-out group-hover:scale-[1.04]"
+              className="w-full h-full object-cover object-[center_40%] transition-transform duration-[1.5s] ease-out group-hover:scale-[1.04]"
             />
             {/* Elegant inner shadow & overlay */}
             <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.1)] pointer-events-none" />

@@ -99,7 +99,7 @@ export const CeremonyDetails: React.FC = () => {
                   e.currentTarget.onerror = null; 
                 }}
                 alt={`${wedding.groom.name} and ${wedding.bride.name}`}
-                className="w-full h-full object-cover object-[center_15%] mix-blend-multiply transition-transform duration-[2s] ease-out group-hover:scale-[1.04]"
+                className="w-full h-full object-cover object-[center_15%] transition-transform duration-[2s] ease-out group-hover:scale-[1.04]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/5 pointer-events-none mix-blend-overlay opacity-opacity-70 group-hover:opacity-100 transition-opacity duration-1000" />
             </div>

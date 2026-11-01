@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from 'motion/react';
 
 export function EnvelopeOpening({ guestName, onComplete, onMusicStart }: { guestName?: string | null, onComplete: () => void, onMusicStart?: () => void }) {
@@ -6,18 +6,42 @@ export function EnvelopeOpening({ guestName, onComplete, onMusicStart }: { guest
   const [showButton, setShowButton] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const completedRef = useRef(false);
+
+  const handleVideoEnd = () => {
+    if (completedRef.current) return;
+    completedRef.current = true;
+    onComplete();
+  };
+
   const handleStart = () => {
     setShowButton(false);
     setIsPlaying(true);
-    if (onMusicStart) onMusicStart();
-    if (videoRef.current) {
-      videoRef.current.play().catch(console.error);
+
+    // Play the video first, inside the tap, so iOS Safari treats it as user-initiated
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.play().catch((error) => {
+        console.error(error);
+        handleVideoEnd();
+      });
+    } else {
+      handleVideoEnd();
     }
+
+    if (onMusicStart) onMusicStart();
   };
 
-  const handleVideoEnd = () => {
-    onComplete();
-  };
+  // If the video still hasn't started a few seconds after the tap (Low Power Mode,
+  // slow network), open the invitation instead of leaving the guest waiting.
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = setTimeout(() => {
+      if (videoRef.current && videoRef.current.currentTime === 0) handleVideoEnd();
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, [isPlaying]);
 
   return (
     <div className="fixed inset-0 bg-[#142540] z-[100] flex items-center justify-center overflow-hidden">
@@ -31,6 +55,7 @@ export function EnvelopeOpening({ guestName, onComplete, onMusicStart }: { guest
         preload="auto"
         muted
         onEnded={handleVideoEnd}
+        onError={() => { if (isPlaying) handleVideoEnd(); }}
       />
       
       <AnimatePresence>

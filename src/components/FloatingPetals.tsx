@@ -17,7 +17,7 @@ export const FloatingPetals: React.FC = () => {
 
   useEffect(() => {
     const colors = ['#a9a398', '#e2c98f', '#c19a4b', '#ebe8e2'];
-    const newPetals = Array.from({ length: 30 }).map((_, i) => ({
+    const newPetals = Array.from({ length: window.matchMedia('(max-width: 767px)').matches ? 12 : 30 }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
       size: Math.random() * 8 + 8,
